@@ -1,0 +1,1045 @@
+<?xml version="1.0"?>
+<project name="Chipmunk2D-Java" default="udiff" >
+
+	<target name="javah" >
+		<mkdir dir="build/generated/include" />
+		<javah destdir="build/generated/include" force="no" >
+			<classpath>
+				<pathelement location="src/main/java/" />
+			</classpath>
+			<class name="ChipmunkJava.Body" />
+			<class name="ChipmunkJava.BodyType" />
+			<class name="ChipmunkJava.Chipmunk" />
+			<class name="ChipmunkJava.Space" />
+			<class name="ChipmunkJava.Collisions.Arbiter" />
+			<class name="ChipmunkJava.Collisions.CollisionSet" />
+			<class name="ChipmunkJava.Collisions.CollisionType" />
+			<class name="ChipmunkJava.Collisions.ContactPointSet" />
+			<class name="ChipmunkJava.Collisions.PointQueryInfo" />
+			<class name="ChipmunkJava.Collisions.SegmentQueryInfo" />
+			<class name="ChipmunkJava.Collisions.ShapeFilter" />
+			<class name="ChipmunkJava.Collisions.ShapeQueryInfo" />
+			<class name="ChipmunkJava.Constraints.Constraint" />
+			<class name="ChipmunkJava.Constraints.DampedRotarySpring" />
+			<class name="ChipmunkJava.Constraints.DampedSpring" />
+			<class name="ChipmunkJava.Constraints.GearJoint" />
+			<class name="ChipmunkJava.Constraints.GrooveJoint" />
+			<class name="ChipmunkJava.Constraints.PinJoint" />
+			<class name="ChipmunkJava.Constraints.PivotJoint" />
+			<class name="ChipmunkJava.Constraints.RatchetJoint" />
+			<class name="ChipmunkJava.Constraints.RotaryLimitJoint" />
+			<class name="ChipmunkJava.Constraints.SimpleMotor" />
+			<class name="ChipmunkJava.Constraints.SlideJoint" />
+			<class name="ChipmunkJava.Debug.SpaceDebugDrawOptions" />
+			<class name="ChipmunkJava.Shapes.Shape" />
+			<class name="ChipmunkJava.Shapes.CircleShape" />
+			<class name="ChipmunkJava.Shapes.PolyShape" />
+			<class name="ChipmunkJava.Shapes.SegmentShape" />
+			<class name="ChipmunkJava._BB" />
+			<class name="ChipmunkJava._Vect" />
+			<class name="ChipmunkJava.Shapes._Transform" />
+		</javah>
+	</target>
+
+	<target name="udiff" depends="javah" >
+		<antcall target="_udiffOldBody" />
+		<antcall target="_udiffNewBody" />
+		<antcall target="_udiffOldBodyType" />
+		<antcall target="_udiffNewBodyType" />
+		<antcall target="_udiffOldChipmunk" />
+		<antcall target="_udiffNewChipmunk" />
+		<antcall target="_udiffOldSpace" />
+		<antcall target="_udiffNewSpace" />
+		<antcall target="_udiffOldCollisions_Arbiter" />
+		<antcall target="_udiffNewCollisions_Arbiter" />
+		<antcall target="_udiffOldCollisions_CollisionSet" />
+		<antcall target="_udiffNewCollisions_CollisionSet" />
+		<antcall target="_udiffOldCollisions_CollisionType" />
+		<antcall target="_udiffNewCollisions_CollisionType" />
+		<antcall target="_udiffOldCollisions_ContactPointSet" />
+		<antcall target="_udiffNewCollisions_ContactPointSet" />
+		<antcall target="_udiffOldCollisions_PointQueryInfo" />
+		<antcall target="_udiffNewCollisions_PointQueryInfo" />
+		<antcall target="_udiffOldCollisions_SegmentQueryInfo" />
+		<antcall target="_udiffNewCollisions_SegmentQueryInfo" />
+		<antcall target="_udiffOldCollisions_ShapeFilter" />
+		<antcall target="_udiffNewCollisions_ShapeFilter" />
+		<antcall target="_udiffOldCollisions_ShapeQueryInfo" />
+		<antcall target="_udiffNewCollisions_ShapeQueryInfo" />
+		<antcall target="_udiffOldConstraints_Constraint" />
+		<antcall target="_udiffNewConstraints_Constraint" />
+		<antcall target="_udiffOldConstraints_DampedRotarySpring" />
+		<antcall target="_udiffNewConstraints_DampedRotarySpring" />
+		<antcall target="_udiffOldConstraints_DampedSpring" />
+		<antcall target="_udiffNewConstraints_DampedSpring" />
+		<antcall target="_udiffOldConstraints_GearJoint" />
+		<antcall target="_udiffNewConstraints_GearJoint" />
+		<antcall target="_udiffOldConstraints_GrooveJoint" />
+		<antcall target="_udiffNewConstraints_GrooveJoint" />
+		<antcall target="_udiffOldConstraints_PinJoint" />
+		<antcall target="_udiffNewConstraints_PinJoint" />
+		<antcall target="_udiffOldConstraints_PivotJoint" />
+		<antcall target="_udiffNewConstraints_PivotJoint" />
+		<antcall target="_udiffOldConstraints_RatchetJoint" />
+		<antcall target="_udiffNewConstraints_RatchetJoint" />
+		<antcall target="_udiffOldConstraints_RotaryLimitJoint" />
+		<antcall target="_udiffNewConstraints_RotaryLimitJoint" />
+		<antcall target="_udiffOldConstraints_SimpleMotor" />
+		<antcall target="_udiffNewConstraints_SimpleMotor" />
+		<antcall target="_udiffOldConstraints_SlideJoint" />
+		<antcall target="_udiffNewConstraints_SlideJoint" />
+		<antcall target="_udiffOldDebug_SpaceDebugDrawOptions" />
+		<antcall target="_udiffNewDebug_SpaceDebugDrawOptions" />
+		<antcall target="_udiffOldShapes_Shape" />
+		<antcall target="_udiffNewShapes_Shape" />
+		<antcall target="_udiffOldShapes_CircleShape" />
+		<antcall target="_udiffNewShapes_CircleShape" />
+		<antcall target="_udiffOldShapes_PolyShape" />
+		<antcall target="_udiffNewShapes_PolyShape" />
+		<antcall target="_udiffOldShapes_SegmentShape" />
+		<antcall target="_udiffNewShapes_SegmentShape" />
+		<antcall target="_udiffOld_BB" />
+		<antcall target="_udiffNew_BB" />
+		<antcall target="_udiffOld_Vect" />
+		<antcall target="_udiffNew_Vect" />
+		<antcall target="_udiffOldShapes__Transform" />
+		<antcall target="_udiffNewShapes__Transform" />
+	</target>
+
+	<target name="_udiffOldBody" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/cpjBody.h" />
+			<arg value="build/generated/include/ChipmunkJava_Body.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewBody" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/cpjBody.h" />
+			<arg value="build/generated/include/ChipmunkJava_Body.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldBodyType" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/cpjBodyType.h" />
+			<arg value="build/generated/include/ChipmunkJava_BodyType.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewBodyType" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/cpjBodyType.h" />
+			<arg value="build/generated/include/ChipmunkJava_BodyType.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldChipmunk" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/cpjChipmunk.h" />
+			<arg value="build/generated/include/ChipmunkJava_Chipmunk.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewChipmunk" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/cpjChipmunk.h" />
+			<arg value="build/generated/include/ChipmunkJava_Chipmunk.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldSpace" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/cpjSpace.h" />
+			<arg value="build/generated/include/ChipmunkJava_Space.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewSpace" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/cpjSpace.h" />
+			<arg value="build/generated/include/ChipmunkJava_Space.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldCollisions_Arbiter" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Collisions/cpjArbiter.h" />
+			<arg value="build/generated/include/ChipmunkJava_Collisions_Arbiter.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewCollisions_Arbiter" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Collisions/cpjArbiter.h" />
+			<arg value="build/generated/include/ChipmunkJava_Collisions_Arbiter.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldCollisions_CollisionSet" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Collisions/cpjCollisionSet.h" />
+			<arg value="build/generated/include/ChipmunkJava_Collisions_CollisionSet.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewCollisions_CollisionSet" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Collisions/cpjCollisionSet.h" />
+			<arg value="build/generated/include/ChipmunkJava_Collisions_CollisionSet.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldCollisions_CollisionType" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Collisions/cpjCollisionType.h" />
+			<arg value="build/generated/include/ChipmunkJava_Collisions_CollisionType.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewCollisions_CollisionType" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Collisions/cpjCollisionType.h" />
+			<arg value="build/generated/include/ChipmunkJava_Collisions_CollisionType.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldCollisions_ContactPointSet" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Collisions/cpjContactPointSet.h" />
+			<arg value="build/generated/include/ChipmunkJava_Collisions_ContactPointSet.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewCollisions_ContactPointSet" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Collisions/cpjContactPointSet.h" />
+			<arg value="build/generated/include/ChipmunkJava_Collisions_ContactPointSet.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldCollisions_PointQueryInfo" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Collisions/cpjPointQueryInfo.h" />
+			<arg value="build/generated/include/ChipmunkJava_Collisions_PointQueryInfo.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewCollisions_PointQueryInfo" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Collisions/cpjPointQueryInfo.h" />
+			<arg value="build/generated/include/ChipmunkJava_Collisions_PointQueryInfo.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldCollisions_SegmentQueryInfo" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Collisions/cpjSegmentQueryInfo.h" />
+			<arg value="build/generated/include/ChipmunkJava_Collisions_SegmentQueryInfo.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewCollisions_SegmentQueryInfo" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Collisions/cpjSegmentQueryInfo.h" />
+			<arg value="build/generated/include/ChipmunkJava_Collisions_SegmentQueryInfo.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldCollisions_ShapeFilter" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Collisions/cpjShapeFilter.h" />
+			<arg value="build/generated/include/ChipmunkJava_Collisions_ShapeFilter.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewCollisions_ShapeFilter" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Collisions/cpjShapeFilter.h" />
+			<arg value="build/generated/include/ChipmunkJava_Collisions_ShapeFilter.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldCollisions_ShapeQueryInfo" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Collisions/cpjShapeQueryInfo.h" />
+			<arg value="build/generated/include/ChipmunkJava_Collisions_ShapeQueryInfo.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewCollisions_ShapeQueryInfo" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Collisions/cpjShapeQueryInfo.h" />
+			<arg value="build/generated/include/ChipmunkJava_Collisions_ShapeQueryInfo.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldConstraints_Constraint" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjConstraint.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_Constraint.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewConstraints_Constraint" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjConstraint.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_Constraint.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldConstraints_DampedRotarySpring" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjDampedRotarySpring.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_DampedRotarySpring.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewConstraints_DampedRotarySpring" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjDampedRotarySpring.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_DampedRotarySpring.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldConstraints_DampedSpring" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjDampedSpring.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_DampedSpring.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewConstraints_DampedSpring" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjDampedSpring.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_DampedSpring.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldConstraints_GearJoint" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjGearJoint.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_GearJoint.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewConstraints_GearJoint" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjGearJoint.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_GearJoint.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldConstraints_GrooveJoint" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjGrooveJoint.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_GrooveJoint.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewConstraints_GrooveJoint" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjGrooveJoint.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_GrooveJoint.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldConstraints_PinJoint" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjPinJoint.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_PinJoint.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewConstraints_PinJoint" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjPinJoint.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_PinJoint.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldConstraints_PivotJoint" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjPivotJoint.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_PivotJoint.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewConstraints_PivotJoint" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjPivotJoint.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_PivotJoint.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldConstraints_RatchetJoint" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjRatchetJoint.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_RatchetJoint.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewConstraints_RatchetJoint" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjRatchetJoint.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_RatchetJoint.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldConstraints_RotaryLimitJoint" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjRotaryLimitJoint.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_RotaryLimitJoint.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewConstraints_RotaryLimitJoint" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjRotaryLimitJoint.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_RotaryLimitJoint.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldConstraints_SimpleMotor" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjSimpleMotor.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_SimpleMotor.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewConstraints_SimpleMotor" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjSimpleMotor.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_SimpleMotor.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldConstraints_SlideJoint" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjSlideJoint.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_SlideJoint.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewConstraints_SlideJoint" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Constraints/cpjSlideJoint.h" />
+			<arg value="build/generated/include/ChipmunkJava_Constraints_SlideJoint.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldDebug_SpaceDebugDrawOptions" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Debug/cpjSpaceDebugDrawOptions.h" />
+			<arg value="build/generated/include/ChipmunkJava_Debug_SpaceDebugDrawOptions.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewDebug_SpaceDebugDrawOptions" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Debug/cpjSpaceDebugDrawOptions.h" />
+			<arg value="build/generated/include/ChipmunkJava_Debug_SpaceDebugDrawOptions.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldShapes_Shape" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Shapes/cpjShape.h" />
+			<arg value="build/generated/include/ChipmunkJava_Shapes_Shape.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewShapes_Shape" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Shapes/cpjShape.h" />
+			<arg value="build/generated/include/ChipmunkJava_Shapes_Shape.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldShapes_CircleShape" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Shapes/cpjCircleShape.h" />
+			<arg value="build/generated/include/ChipmunkJava_Shapes_CircleShape.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewShapes_CircleShape" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Shapes/cpjCircleShape.h" />
+			<arg value="build/generated/include/ChipmunkJava_Shapes_CircleShape.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldShapes_PolyShape" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Shapes/cpjPolyShape.h" />
+			<arg value="build/generated/include/ChipmunkJava_Shapes_PolyShape.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewShapes_PolyShape" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Shapes/cpjPolyShape.h" />
+			<arg value="build/generated/include/ChipmunkJava_Shapes_PolyShape.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldShapes_SegmentShape" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Shapes/cpjSegmentShape.h" />
+			<arg value="build/generated/include/ChipmunkJava_Shapes_SegmentShape.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewShapes_SegmentShape" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Shapes/cpjSegmentShape.h" />
+			<arg value="build/generated/include/ChipmunkJava_Shapes_SegmentShape.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOld_BB" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/cpjBB.h" />
+			<arg value="build/generated/include/ChipmunkJava__BB.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNew_BB" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/cpjBB.h" />
+			<arg value="build/generated/include/ChipmunkJava__BB.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOld_Vect" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/cpjVect.h" />
+			<arg value="build/generated/include/ChipmunkJava__Vect.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNew_Vect" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/cpjVect.h" />
+			<arg value="build/generated/include/ChipmunkJava__Vect.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffOldShapes__Transform" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=[REMOVED] %L" />
+			<arg value="Chipmunk2D-JNI/include/Shapes/cpjTransform.h" />
+			<arg value="build/generated/include/ChipmunkJava_Shapes__Transform.h" />
+		</exec>
+	</target>
+
+	<target name="_udiffNewShapes__Transform" >
+		<exec executable="udiff.exe" >
+			<arg value="-Bbw" />
+			<arg value="--new-line-format=%L" />
+			<arg value="--unchanged-line-format=" />
+			<arg value="--old-line-format=" />
+			<arg value="Chipmunk2D-JNI/include/Shapes/cpjTransform.h" />
+			<arg value="build/generated/include/ChipmunkJava_Shapes__Transform.h" />
+		</exec>
+	</target>
+
+	<target name="update" depends="javah" >
+		<antcall target="_updateBody" />
+		<antcall target="_updateBodyType" />
+		<antcall target="_updateChipmunk" />
+		<antcall target="_updateSpace" />
+		<antcall target="_updateCollisions_Arbiter" />
+		<antcall target="_updateCollisions_CollisionSet" />
+		<antcall target="_updateCollisions_CollisionType" />
+		<antcall target="_updateCollisions_ContactPointSet" />
+		<antcall target="_updateCollisions_PointQueryInfo" />
+		<antcall target="_updateCollisions_SegmentQueryInfo" />
+		<antcall target="_updateCollisions_ShapeFilter" />
+		<antcall target="_updateCollisions_ShapeQueryInfo" />
+		<antcall target="_updateConstraints_Constraint" />
+		<antcall target="_updateConstraints_DampedRotarySpring" />
+		<antcall target="_updateConstraints_DampedSpring" />
+		<antcall target="_updateConstraints_GearJoint" />
+		<antcall target="_updateConstraints_GrooveJoint" />
+		<antcall target="_updateConstraints_PinJoint" />
+		<antcall target="_updateConstraints_PivotJoint" />
+		<antcall target="_updateConstraints_RatchetJoint" />
+		<antcall target="_updateConstraints_RotaryLimitJoint" />
+		<antcall target="_updateConstraints_SimpleMotor" />
+		<antcall target="_updateConstraints_SlideJoint" />
+		<antcall target="_updateDebug_SpaceDebugDrawOptions" />
+		<antcall target="_updateShapes_Shape" />
+		<antcall target="_updateShapes_CircleShape" />
+		<antcall target="_updateShapes_PolyShape" />
+		<antcall target="_updateShapes_SegmentShape" />
+		<antcall target="_update_BB" />
+		<antcall target="_update_Vect" />
+		<antcall target="_updateShapes__Transform" />
+	</target>
+
+	<target name="_updateBody" >
+		<concat destfile="Chipmunk2D-JNI/include/cpjBody.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Body.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateBodyType" >
+		<concat destfile="Chipmunk2D-JNI/include/cpjBodyType.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_BodyType.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateChipmunk" >
+		<concat destfile="Chipmunk2D-JNI/include/cpjChipmunk.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Chipmunk.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateSpace" >
+		<concat destfile="Chipmunk2D-JNI/include/cpjSpace.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Space.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateCollisions_Arbiter" >
+		<concat destfile="Chipmunk2D-JNI/include/Collisions/cpjArbiter.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Collisions_Arbiter.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateCollisions_CollisionSet" >
+		<concat destfile="Chipmunk2D-JNI/include/Collisions/cpjCollisionSet.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Collisions_CollisionSet.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateCollisions_CollisionType" >
+		<concat destfile="Chipmunk2D-JNI/include/Collisions/cpjCollisionType.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Collisions_CollisionType.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateCollisions_ContactPointSet" >
+		<concat destfile="Chipmunk2D-JNI/include/Collisions/cpjContactPointSet.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Collisions_ContactPointSet.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateCollisions_PointQueryInfo" >
+		<concat destfile="Chipmunk2D-JNI/include/Collisions/cpjPointQueryInfo.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Collisions_PointQueryInfo.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateCollisions_SegmentQueryInfo" >
+		<concat destfile="Chipmunk2D-JNI/include/Collisions/cpjSegmentQueryInfo.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Collisions_SegmentQueryInfo.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateCollisions_ShapeFilter" >
+		<concat destfile="Chipmunk2D-JNI/include/Collisions/cpjShapeFilter.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Collisions_ShapeFilter.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateCollisions_ShapeQueryInfo" >
+		<concat destfile="Chipmunk2D-JNI/include/Collisions/cpjShapeQueryInfo.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Collisions_ShapeQueryInfo.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateConstraints_Constraint" >
+		<concat destfile="Chipmunk2D-JNI/include/Constraints/cpjConstraint.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Constraints_Constraint.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateConstraints_DampedRotarySpring" >
+		<concat destfile="Chipmunk2D-JNI/include/Constraints/cpjDampedRotarySpring.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Constraints_DampedRotarySpring.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateConstraints_DampedSpring" >
+		<concat destfile="Chipmunk2D-JNI/include/Constraints/cpjDampedSpring.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Constraints_DampedSpring.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateConstraints_GearJoint" >
+		<concat destfile="Chipmunk2D-JNI/include/Constraints/cpjGearJoint.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Constraints_GearJoint.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateConstraints_GrooveJoint" >
+		<concat destfile="Chipmunk2D-JNI/include/Constraints/cpjGrooveJoint.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Constraints_GrooveJoint.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateConstraints_PinJoint" >
+		<concat destfile="Chipmunk2D-JNI/include/Constraints/cpjPinJoint.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Constraints_PinJoint.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateConstraints_PivotJoint" >
+		<concat destfile="Chipmunk2D-JNI/include/Constraints/cpjPivotJoint.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Constraints_PivotJoint.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateConstraints_RatchetJoint" >
+		<concat destfile="Chipmunk2D-JNI/include/Constraints/cpjRatchetJoint.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Constraints_RatchetJoint.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateConstraints_RotaryLimitJoint" >
+		<concat destfile="Chipmunk2D-JNI/include/Constraints/cpjRotaryLimitJoint.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Constraints_RotaryLimitJoint.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateConstraints_SimpleMotor" >
+		<concat destfile="Chipmunk2D-JNI/include/Constraints/cpjSimpleMotor.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Constraints_SimpleMotor.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateConstraints_SlideJoint" >
+		<concat destfile="Chipmunk2D-JNI/include/Constraints/cpjSlideJoint.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Constraints_SlideJoint.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateDebug_SpaceDebugDrawOptions" >
+		<concat destfile="Chipmunk2D-JNI/include/Debug/cpjSpaceDebugDrawOptions.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Debug_SpaceDebugDrawOptions.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateShapes_Shape" >
+		<concat destfile="Chipmunk2D-JNI/include/Shapes/cpjShape.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Shapes_Shape.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateShapes_CircleShape" >
+		<concat destfile="Chipmunk2D-JNI/include/Shapes/cpjCircleShape.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Shapes_CircleShape.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateShapes_PolyShape" >
+		<concat destfile="Chipmunk2D-JNI/include/Shapes/cpjPolyShape.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Shapes_PolyShape.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateShapes_SegmentShape" >
+		<concat destfile="Chipmunk2D-JNI/include/Shapes/cpjSegmentShape.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Shapes_SegmentShape.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_update_BB" >
+		<concat destfile="Chipmunk2D-JNI/include/cpjBB.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava__BB.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_update_Vect" >
+		<concat destfile="Chipmunk2D-JNI/include/cpjVect.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava__Vect.h"/> 
+		</concat> 
+	</target>
+
+	<target name="_updateShapes__Transform" >
+		<concat destfile="Chipmunk2D-JNI/include/Shapes/cpjTransform.h" force="no" > 
+			<header>#pragma once${line.separator}</header> 
+			<filelist dir="build/generated/include" files="ChipmunkJava_Shapes__Transform.h"/> 
+		</concat> 
+	</target>
+
+	<target name="clean" >
+		<delete dir="build/generated/include" />
+	</target>
+</project>
